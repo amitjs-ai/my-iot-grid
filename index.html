@@ -1,182 +1,55 @@
-From: <Saved by Blink>
-Snapshot-Content-Location: data:text/html, <html contenteditable>
-Subject: 
-Date: Fri, 4 Sep 2026 13:01:12 +0530
-MIME-Version: 1.0
-Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--JQiyHlJ4c33sqlaNfaaNpuxFBicbA8cSlndmz895Lq----"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Device Node</title>
+    <style>
+        body { background-color: #000000; color: #ffffff; font-family: sans-serif; text-align: center; padding: 50px; }
+        .card { border: 2px solid #333; padding: 20px; border-radius: 10px; display: inline-block; }
+        .online { color: #00ff00; font-weight: bold; }
+        .offline { color: #ff0000; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Device Status Panel</h2>
+        <p>Availability: <span id="network-status" class="online">ONLINE</span></p>
+        <p>Power State: <span id="charge-status">Checking...</span></p>
+        <p>Battery Level: <span id="battery-level">0%</span></p>
+    </div>
 
+    <script>
+        const network = document.getElementById('network-status');
+        const charge = document.getElementById('charge-status');
+        const level = document.getElementById('battery-level');
 
-------MultipartBoundary--JQiyHlJ4c33sqlaNfaaNpuxFBicbA8cSlndmz895Lq----
-Content-Type: text/html
-Content-ID: <frame-CA716E6CBACFECA9E8B3A63B1257EEA8@mhtml.blink>
-Content-Transfer-Encoding: quoted-printable
-Content-Location: data:text/html, <html contenteditable>
+        // 1. Monitor Network Connection
+        window.addEventListener('offline', () => {
+            network.innerText = "OFFLINE / UNAVAILABLE";
+            network.className = "offline";
+        });
+        window.addEventListener('online', () => {
+            network.innerText = "ONLINE / AVAILABLE";
+            network.className = "online";
+        });
 
-<html contenteditable=3D""><head><meta http-equiv=3D"Content-Type" content=
-=3D"text/html; charset=3Dwindows-1252"></head><body><span style=3D"color: r=
-gb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small=
-; background-color: rgb(255, 255, 255);">&lt;!DOCTYPE html&gt;</span><div d=
-ir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica,=
- sans-serif; font-size: small; background-color: rgb(255, 255, 255);">&lt;h=
-tml lang=3D"en"&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34);=
- font-family: Arial, Helvetica, sans-serif; font-size: small; background-co=
-lor: rgb(255, 255, 255);">&lt;head&gt;</div><div dir=3D"auto" style=3D"colo=
-r: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: s=
-mall; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &lt;meta charset=
-=3D"UTF-8"&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font=
--family: Arial, Helvetica, sans-serif; font-size: small; background-color: =
-rgb(255, 255, 255);">&nbsp; &nbsp; &lt;meta name=3D"viewport" content=3D"wi=
-dth=3Ddevice-width, initial-scale=3D1.0"&gt;</div><div dir=3D"auto" style=
-=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font=
--size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &lt;titl=
-e&gt;IoT Device Node&lt;/title&gt;</div><div dir=3D"auto" style=3D"color: r=
-gb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small=
-; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &lt;style&gt;</div><=
-div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helve=
-tica, sans-serif; font-size: small; background-color: rgb(255, 255, 255);">=
-&nbsp; &nbsp; &nbsp; &nbsp; body { background-color: #000000; color: #fffff=
-f; font-family: sans-serif; text-align: center; padding: 50px; }</div><div =
-dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica=
-, sans-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbs=
-p; &nbsp; &nbsp; &nbsp; .card { border: 2px solid #333; padding: 20px; bord=
-er-radius: 10px; display: inline-block; }</div><div dir=3D"auto" style=3D"c=
-olor: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size=
-: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp;=
- .online { color: #00ff00; font-weight: bold; }</div><div dir=3D"auto" styl=
-e=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; fon=
-t-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; =
-&nbsp; .offline { color: #ff0000; font-weight: bold; }</div><div dir=3D"aut=
-o" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-ser=
-if; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; =
-&lt;/style&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font=
--family: Arial, Helvetica, sans-serif; font-size: small; background-color: =
-rgb(255, 255, 255);">&lt;/head&gt;</div><div dir=3D"auto" style=3D"color: r=
-gb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small=
-; background-color: rgb(255, 255, 255);">&lt;body&gt;</div><div dir=3D"auto=
-" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-seri=
-f; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &=
-lt;div class=3D"card"&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34=
-, 34); font-family: Arial, Helvetica, sans-serif; font-size: small; backgro=
-und-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;Devic=
-e Status Panel&lt;/h2&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34=
-, 34); font-family: Arial, Helvetica, sans-serif; font-size: small; backgro=
-und-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Availa=
-bility: &lt;span id=3D"network-status" class=3D"online"&gt;ONLINE&lt;/span&=
-gt;&lt;/<wbr>p&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); =
-font-family: Arial, Helvetica, sans-serif; font-size: small; background-col=
-or: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Power State: =
-&lt;span id=3D"charge-status"&gt;Checking...<wbr>&lt;/span&gt;&lt;/p&gt;</d=
-iv><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, H=
-elvetica, sans-serif; font-size: small; background-color: rgb(255, 255, 255=
-);">&nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Battery Level: &lt;span id=3D"batt=
-ery-level"&gt;0%&lt;/span&gt;&lt;/<wbr>p&gt;</div><div dir=3D"auto" style=
-=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font=
--size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &lt;/div=
-&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: A=
-rial, Helvetica, sans-serif; font-size: small; background-color: rgb(255, 2=
-55, 255);"><br></div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); fon=
-t-family: Arial, Helvetica, sans-serif; font-size: small; background-color:=
- rgb(255, 255, 255);">&nbsp; &nbsp; &lt;script&gt;</div><div dir=3D"auto" s=
-tyle=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; =
-font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbs=
-p; &nbsp; const network =3D document.getElementById('<wbr>network-status');=
-</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial=
-, Helvetica, sans-serif; font-size: small; background-color: rgb(255, 255, =
-255);">&nbsp; &nbsp; &nbsp; &nbsp; const charge =3D document.getElementById=
-('<wbr>charge-status');</div><div dir=3D"auto" style=3D"color: rgb(34, 34, =
-34); font-family: Arial, Helvetica, sans-serif; font-size: small; backgroun=
-d-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; const level =3D d=
-ocument.getElementById('<wbr>battery-level');</div><div dir=3D"auto" style=
-=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font=
--size: small; background-color: rgb(255, 255, 255);"><br></div><div dir=3D"=
-auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-=
-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbs=
-p; &nbsp; &nbsp; // 1. Monitor Network Connection</div><div dir=3D"auto" st=
-yle=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; f=
-ont-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp=
-; &nbsp; window.addEventListener('<wbr>offline', () =3D&gt; {</div><div dir=
-=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, s=
-ans-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; =
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; network.innerText =3D "OFFLINE / UNAVAIL=
-ABLE";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family:=
- Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(255,=
- 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; network.className =
-=3D "offline";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font=
--family: Arial, Helvetica, sans-serif; font-size: small; background-color: =
-rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; });</div><div dir=3D"auto"=
- style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif=
-; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &n=
-bsp; &nbsp; window.addEventListener('<wbr>online', () =3D&gt; {</div><div d=
-ir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica,=
- sans-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp=
-; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; network.innerText =3D "ONLINE / AVAILA=
-BLE";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: =
-Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(255, =
-255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; network.className =3D=
- "online";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-fam=
-ily: Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(=
-255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; });</div><div dir=3D"auto" sty=
-le=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; fo=
-nt-size: small; background-color: rgb(255, 255, 255);"><br></div><div dir=
-=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, s=
-ans-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; =
-&nbsp; &nbsp; &nbsp; // 2. Monitor Physical Battery &amp; Charger</div><div=
- dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetic=
-a, sans-serif; font-size: small; background-color: rgb(255, 255, 255);">&nb=
-sp; &nbsp; &nbsp; &nbsp; if ('getBattery' in navigator) {</div><div dir=3D"=
-auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-=
-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nbs=
-p; &nbsp; &nbsp; &nbsp; &nbsp; navigator.getBattery().then(<wbr>function(ba=
-ttery) {</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-famil=
-y: Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(25=
-5, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; func=
-tion updateBatteryInfo() {</div><div dir=3D"auto" style=3D"color: rgb(34, 3=
-4, 34); font-family: Arial, Helvetica, sans-serif; font-size: small; backgr=
-ound-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp; &nbsp; &nbsp; &nbsp; level.innerText =3D Math.round(battery.level * =
-100) + "%";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-fa=
-mily: Arial, Helvetica, sans-serif; font-size: small; background-color: rgb=
-(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
-nbsp; &nbsp; charge.innerText =3D battery.charging ? "CHARGING (On Wall)" :=
- "DISCHARGING (Mobile)";</div><div dir=3D"auto" style=3D"color: rgb(34, 34,=
- 34); font-family: Arial, Helvetica, sans-serif; font-size: small; backgrou=
-nd-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
-bsp; &nbsp; &nbsp; &nbsp; charge.style.color =3D battery.charging ? "#00ff0=
-0" : "#ffaa00";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); fon=
-t-family: Arial, Helvetica, sans-serif; font-size: small; background-color:=
- rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
-p; }</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: A=
-rial, Helvetica, sans-serif; font-size: small; background-color: rgb(255, 2=
-55, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</d=
-iv><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, H=
-elvetica, sans-serif; font-size: small; background-color: rgb(255, 255, 255=
-);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateBatteryIn=
-fo();</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: =
-Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(255, =
-255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; battery=
-.addEventListener('<wbr>chargingchange', updateBatteryInfo);</div><div dir=
-=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, s=
-ans-serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; =
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; battery.addEventListener('=
-<wbr>levelchange', updateBatteryInfo);</div><div dir=3D"auto" style=3D"colo=
-r: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: s=
-mall; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &n=
-bsp; &nbsp; });</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); fon=
-t-family: Arial, Helvetica, sans-serif; font-size: small; background-color:=
- rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; } else {</div><div dir=3D=
-"auto" style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans=
--serif; font-size: small; background-color: rgb(255, 255, 255);">&nbsp; &nb=
-sp; &nbsp; &nbsp; &nbsp; &nbsp; charge.innerText =3D "Battery API Not Suppo=
-rted";</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family:=
- Arial, Helvetica, sans-serif; font-size: small; background-color: rgb(255,=
- 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; }</div><div dir=3D"auto" style=3D"=
-color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-siz=
-e: small; background-color: rgb(255, 255, 255);">&nbsp; &nbsp; &lt;/script&=
-gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, 34); font-family: Ar=
-ial, Helvetica, sans-serif; font-size: small; background-color: rgb(255, 25=
-5, 255);">&lt;/body&gt;</div><div dir=3D"auto" style=3D"color: rgb(34, 34, =
-34); font-family: Arial, Helvetica, sans-serif; font-size: small; backgroun=
-d-color: rgb(255, 255, 255);">&lt;/html&gt;</div></body></html>
-------MultipartBoundary--JQiyHlJ4c33sqlaNfaaNpuxFBicbA8cSlndmz895Lq------
+        // 2. Monitor Physical Battery & Charger
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                function updateBatteryInfo() {
+                    level.innerText = Math.round(battery.level * 100) + "%";
+                    charge.innerText = battery.charging ? "CHARGING (On Wall)" : "DISCHARGING (Mobile)";
+                    charge.style.color = battery.charging ? "#00ff00" : "#ffaa00";
+                }
+                
+                updateBatteryInfo();
+                battery.addEventListener('chargingchange', updateBatteryInfo);
+                battery.addEventListener('levelchange', updateBatteryInfo);
+            });
+        } else {
+            charge.innerText = "Battery API Not Supported";
+        }
+    </script>
+</body>
+</html>------
