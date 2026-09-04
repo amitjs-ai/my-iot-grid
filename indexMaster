@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>JSON Master Grid</title>
+    <style>
+        body { background-color: #000; color: #fff; font-family: sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .card { border: 2px solid #333; padding: 15px; border-radius: 8px; text-align: center; }
+        .charging { color: #00ff00; font-weight: bold; }
+        .discharging { color: #ffaa00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Integrated JSON Status Grid</h1>
+    <div class="grid" id="dashboard-grid">Loading JSON streams...</div>
+
+    <script>
+        // !!! PASTE YOUR REFRESHED KVDB BUCKET URL HERE !!!
+        //const BUCKET_URL = "https://kvdb.io";
+        const BUCKET_URL = "https://kvdb.io/T639cpS9uLXLnqxSTMAKGa/";
+        
+        // List out the exact names you want to assign to your 6 budget phones
+        const deviceList = ["Phone1", "Phone2", "Phone3", "Phone4", "Phone5", "Phone6"];
+
+        function refreshDashboard() {
+            const grid = document.getElementById('dashboard-grid');
+            grid.innerHTML = ''; 
+
+            deviceList.forEach(name => {
+                fetch(`${BUCKET_URL}${name}`)
+                .then(res => res.json())
+                .then(data => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h3>${name}</h3>
+                        <p>Battery: <strong>${data.battery}%</strong></p>
+                        <p class="${data.is_charging ? 'charging' : 'discharging'}">
+                            ${data.is_charging ? 'ON CHARGER (Wall)' : 'DISCHARGING (Mobile)'}
+                        </p>
+                    `;
+                    grid.appendChild(card);
+                })
+                .catch(() => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `<h3>${name}</h3><p style="color:#666">Offline / Waiting for Node...</p>`;
+                    grid.appendChild(card);
+                });
+            });
+        }
+
+        refreshDashboard();
+        setInterval(refreshDashboard, 10000); // Check updates every 10 seconds
+    </script>
+</body>
+</html>
