@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Budget Node Sender</title>
+    <style>body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 50px; }</style>
+</head>
+<body>
+    <h2>Device: <span id="my-name">Detecting...</span></h2>
+    <p id="status">Syncing battery state to JSON...</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const deviceName = urlParams.get('name') || 'Unknown_Node';
+        document.getElementById('my-name').innerText = deviceName;
+
+        // !!! PASTE YOUR REFRESHED KVDB BUCKET URL HERE !!!
+        const BUCKET_URL = "https://kvdb.io/T639cpS9uLXLnqxSTMAKGa/";
+        //const BUCKET_URL = "https://kvdb.io";
+        const JSON_URL = `${BUCKET_URL}${deviceName}`;
+
+        function sendJsonData(level, charging) {
+            const payload = { battery: level, is_charging: charging, time: Date.now() };
+
+            fetch(JSON_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(() => document.getElementById('status').innerText = "JSON Updated Successfully!")
+            .catch(err => document.getElementById('status').innerText = "Network choke, retrying...");
+        }
+
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                function report() {
+                    sendJsonData(Math.round(battery.level * 100), battery.charging);
+                }
+                battery.addEventListener('chargingchange', report);
+                battery.addEventListener('levelchange', report);
+                report();
+                setInterval(report, 30000);
+            });
+        }
+    </script>
+</body>
+</html>
